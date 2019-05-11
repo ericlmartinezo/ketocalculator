@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CALCULOS MACROS DIARIOS POR PESO IDEAL </title>
+</head>
+<body>
+	<!-- <h2> CALCULOS MACROS DIARIOS POR PESO IDEAL </h2> -->
+
+<form name="form1" onsubmit="true" style="font-family : 'Quicksand', sans-serif;">
+
+<form>
+    Peso ideal (Libras): <input type="text" name="num1"><br>
+    Calorías quemadas por ejercicios: <input type="text" name="num2"><br>
+    <!-- Boton -->
+    <input type="button" style ="background-color:darkseagreen" value="Calcule" onclick="calcSum()"><br>
+    <br>
+
+    Peso ideal en kilos: <input type="text" name="sum"><br>
+    Calorías totales diarias: <input type="text" name="div"><br>
+
+    <p><strong>Cantidad maxima de proteínas al día(20%)</strong></p>
+    Gramos: <input type="text" name="div2"><br>
+    Calorías: <input type="text" name="div3"><br>
+
+    <p><strong>Cantidad minima de grasa al día (70%)</strong></p>
+    Gramos: <input type="text" name="div4"><br>
+    Calorías: <input type="text" name="div5"><br>
+    <!-- Cantidad Maxima Carbs al dia (10%) -->
+    <p><strong>Cantidad maxima de carbs al día (10%)</strong></p>
+    Gramos: <br><input type="text" name="div6"><br>
+    Calorías: <br><input type="text" name="div7"><br>
+</form>
+ 
+<script>
+    function calcSum() {
+        let num1 = document.getElementsByName("num1")[0].value;
+        let num2 = document.getElementsByName("num2")[0].value;
+// Peso Ideal en Kilos
+        let sum = Number(num1) / 2.204623;
+        document.getElementsByName("sum")[0].value = sum.toFixed(0);
+// Calorias Totales diarias
+        let div = Number(sum) / 0.05 + Number(num2);
+        document.getElementsByName("div")[0].value = div.toFixed(0);
+// Cantidad Maxima de Proteinas al dia(20%)
+        let div2 = Number(sum) + Number(num2) * 0.05;
+        document.getElementsByName("div2")[0].value = div2.toFixed(0);
+        let div3 = Number(div) * 0.2;
+        document.getElementsByName("div3")[0].value = div3.toFixed(0);
+// Cantidad Minima de Grasa al Dia (70%)
+        let div4 = Number(div2) * 1.55;
+        document.getElementsByName("div4")[0].value = div4.toFixed(0);
+        let div5 = Number(div) * 0.7;
+        document.getElementsByName("div5")[0].value = div5.toFixed(0);
+// Cantidad Maxima Carbs al dia (10%)
+// Gramos
+        let div6 = Number(div2) * 0.5;
+        document.getElementsByName("div6")[0].value = div6.toFixed(0);
+// Calorias
+        let div7 = Number(div) * 0.1;
+        document.getElementsByName("div7")[0].value = div7.toFixed(0);
+    }
+</script>
+</form>
+
+</body>
+</html>
